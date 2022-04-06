@@ -13,6 +13,7 @@ filegroup {
 filegroup {
     name: "non_openjdk_javadoc_dalvik_files",
     srcs: [
+        "dalvik/src/main/java/dalvik/artemis/Artemis.java",
         "dalvik/src/main/java/dalvik/annotation/AnnotationDefault.java",
         "dalvik/src/main/java/dalvik/annotation/EnclosingClass.java",
         "dalvik/src/main/java/dalvik/annotation/EnclosingMethod.java",
