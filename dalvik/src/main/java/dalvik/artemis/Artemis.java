@@ -12,7 +12,13 @@ public class Artemis {
     public static native boolean isJitEnabled();
 
     /**
+     * Return whether the method being invoked (caller of isBeingInterpreted()) is being interpreted.
+     */
+    public static native boolean isBeingInterpreted();
+
+    /**
      * Return whether the method being invoked (caller of isJitCompiled()) is JIT compiled.
+     * Note, a method is JIT compiled does not mean the method is running in the JIT/OSR code.
      */
     public static native boolean isJitCompiled();
 
@@ -45,6 +51,11 @@ public class Artemis {
     }
 
     /**
+     * Force to JIT compile current invoking method. Return whether the method is successfully JIT compiled.
+     */
+    public static native boolean ensureJitCompiled();
+
+    /**
      * Force to depotimize a given method. Return whether the method is successfully depotimized.
      */
     public static native boolean ensureMethodDeoptimized(Method method);
@@ -57,4 +68,10 @@ public class Artemis {
                                                   Class<?>... args) throws NoSuchMethodException, SecurityException {
         return ensureMethodDeoptimized(clazz.getDeclaredMethod(methodName, args));
     }
+
+    /**
+     * Force to depotimize current invoking method. Return whether the method is successfully depotimized.
+     */
+    public static native void ensureDeoptimized();
+
 }
