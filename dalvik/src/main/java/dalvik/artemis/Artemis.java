@@ -72,6 +72,6 @@ public class Artemis {
     /**
      * Force to depotimize current invoking method. Return whether the method is successfully depotimized.
      */
-    public static native void ensureDeoptimized();
+    public static native boolean ensureDeoptimized();
 
 }
